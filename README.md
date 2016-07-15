@@ -10,19 +10,18 @@ The SCM function is used as follows:
 
 function [A,R,mu,sigma,var_dirs,var_amts] = scm(I,M,options)
 Input:
-  I: row*col*B image data
-  M: number of endmembers
-  options: structure for additional parameters
+  I: row*col*B image data,
+  M: number of endmembers,
+  options: structure for additional parameters,
 Output:
-  A: abundances (N by M)
-  R: endmembers (M by B)
-  mu: noise std
-  sigma: covariance matrices of endmember uncertainty
-  var_dirs: uncertainty directions
-  var_amts: uncertainty amounts
+  A: abundances (N by M),
+  R: endmembers (M by B),
+  mu: noise standard deviation,
+  sigma: covariance matrices of endmember uncertainty,
+  var_dirs: uncertainty directions,
+  var_amts: uncertainty amounts.
 
-Note: options is a structure containing eta,beta1,beta2,rho1,...
-  show_figure,init_mode, etc.
+Note: options is a structure containing eta,beta1,beta2,rho1,show_figure,init_mode, etc.
 
 If you have any questions, please contact:
 
