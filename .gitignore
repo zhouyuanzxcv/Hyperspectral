@@ -45,3 +45,15 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# =========================
+# My ignore rules
+# =========================
+*/
+/*.mat
+*.log
+*.asv
+!SCM/
+!common/
+
+result*.mat
