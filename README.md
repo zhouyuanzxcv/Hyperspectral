@@ -16,7 +16,7 @@ Input:
 Output:
   A: abundances (N by M),
   R: endmembers (M by B),
-  mu: noise standard deviation,
+  mu: noise standard deviations,
   sigma: covariance matrices of endmember uncertainty,
   var_dirs: uncertainty directions,
   var_amts: uncertainty amounts.
