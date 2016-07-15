@@ -3,15 +3,17 @@ function [A,R,mu,sigma,var_dirs,var_amts] = scm(I,M,options)
 % Input:
 %   I: row*col*B image data
 %   M: number of endmembers
-%   options: structure
+%   options: structure for additional parameters
 % Output:
-%   A: abundances
-%   R: endmembers
+%   A: abundances (N by M)
+%   R: endmembers (M by B)
 %   mu: noise std
 %   sigma: uncertainty of endmembers
+%   var_dirs: uncertainty directions
+%   var_amts: uncertainty amounts
 %
-% Note: options has structure containing eta,beta,nu,rho1,rho2,...
-%   show_figure,sigma_mode,init_mode,seg_map
+% Note: options is a structure containing eta,beta1,beta2,rho1,...
+%   show_figure,init_mode, etc.
 % 
 start = tic;
 
@@ -26,9 +28,9 @@ else
 end
 
 % set parameters
-beta1 = 0.01;
-beta2 = 0.02;
-rho1 = 0.05;
+beta1 = 10;
+beta2 = 10;
+rho1 = 0.01;
 rho2 = 0;
 eta = 0.05;
 show_figure = 1;

@@ -31,7 +31,7 @@ switch dataset
         
         options.beta1 = 10;
         options.beta2 = 10;
-        options.rho1 = 0.001; % 0.001, 0.1
+        options.rho1 = 0.001; % Set it to 0.1 to see uncertainty
         
         options.skip_uncertainty = 0;
         options.use_single_variance_for_unmixing = 0;
@@ -47,7 +47,7 @@ switch dataset
         
         options.beta1 = 10;
         options.beta2 = 10;
-        options.rho1 = 0.1;
+        options.rho1 = 0.1; % Shows uncertainty
         
         options.use_single_variance_for_uncertainty = 0;
     case '2'
