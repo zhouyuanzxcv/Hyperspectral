@@ -2,6 +2,7 @@ function [ output_args ] = test_scm( input_args )
 %TEST_OBJ_FUN Summary of this function goes here
 %   Detailed explanation goes here
 close all;
+addpath('../common');
 addpath('../AsterSpectralLibrary');
 addpath('../VCA');
 addpath('../');
