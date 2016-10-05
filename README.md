@@ -2,7 +2,7 @@ Hyperspectral ReadMe
 
 The repository contains the Matlab implementation of spatial compositional model(SCM), which is used in hyperspectral unmixing. If you find the code helpful, please cite the following paper: 
 
-Zhou, Y.; Rangarajan, A. & Gader, P. D. A spatial compositional model (SCM) for linear unmixing and endmember uncertainty estimation. arXiv preprint arXiv:1509.09243, 2015
+Zhou, Y., Rangarajan, A. & Gader, P. D. A spatial compositional model for linear unmixing and endmember uncertainty estimation. IEEE Transactions on Image Processing, 2016
 
 The SCM folder contains the main files for the algorithm. The common folder contains auxiliary files used for displaying and processing. To see the demo, run "test_scm.m" and you can change the "dataset" in it.
 
