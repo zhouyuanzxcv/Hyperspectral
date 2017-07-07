@@ -18,15 +18,16 @@ end
 
 addpath([dropbox,'Hyperspectral/code/Grendel/Graphcut']);
 
-addpath([onedrive,'MyPrograms/Matlab/Utility/distinguishable_colors']);
-addpath([onedrive,'MyPrograms/Matlab/Utility/export_fig']);
-addpath([onedrive,'MyPrograms/Matlab/Utility/gridLegend']);
-addpath([onedrive,'MyPrograms/Matlab/Utility/subtightplot']);
-addpath([onedrive,'MyPrograms/Matlab/Utility']);
+addpath([onedrive,'Code/Matlab/Utility/distinguishable_colors']);
+addpath([onedrive,'Code/Matlab/Utility/export_fig']);
+addpath([onedrive,'Code/Matlab/Utility/gridLegend']);
+addpath([onedrive,'Code/Matlab/Utility/subtightplot']);
+addpath([onedrive,'Code/Matlab/Utility/textprogressbar']);
+addpath([onedrive,'Code/Matlab/Utility']);
 
 s = version;
 if str2double(s(1)) <= 7
-    addpath([onedrive,'MyPrograms/Matlab/Utility/compatibility']);
+    addpath([onedrive,'Code/Matlab/Utility/compatibility']);
 end
 
 addpath([dropbox,'Hyperspectral/code/common']);

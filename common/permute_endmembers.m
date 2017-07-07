@@ -41,15 +41,15 @@ else
         indices = [];
         for i = 1:size(M2_1,1)
             m2 = M2_1(i,:);
-            [C,ind] = min(mean(abs(repmat(m2,size(M1_1,1),1) - M1_1),2));
+            [C,ind] = min(nanmean(abs(repmat(m2,size(M1_1,1),1) - M1_1),2));
             errors(i) = C;
             indices(i) = ind;
         end
         [~,ind2] = min(errors);
         ind1 = indices(ind2);
         % find indices in the original matrix
-        [~,ind1_ori] = min(mean(abs(repmat(M1_1(ind1,:),size(M1,1),1) - M1),2));
-        [~,ind2_ori] = min(mean(abs(repmat(M2_1(ind2,:),size(M2,1),1) - M2),2));
+        [~,ind1_ori] = min(nanmean(abs(repmat(M1_1(ind1,:),size(M1,1),1) - M1),2));
+        [~,ind2_ori] = min(nanmean(abs(repmat(M2_1(ind2,:),size(M2,1),1) - M2),2));
         
         P(ind1_ori,ind2_ori) = 1;
         M1_1(ind1,:) = [];
@@ -73,4 +73,4 @@ end
 
 
 function err = calc_error(M1,M2)
-err = mean(mean(abs(M1-M2)));
+err = nanmean(nanmean(abs(M1-M2)));

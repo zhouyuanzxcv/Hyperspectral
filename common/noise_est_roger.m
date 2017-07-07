@@ -1,8 +1,10 @@
-function sigmas = noise_est_roger(Y)
+function sigmas = noise_est_roger(I)
 %NOISE_EST_ROGER Estimate the standard deviation of noise for each band.
-if ndims(Y) == 3
-    [rows,cols,B] = size(Y);
-    Y = reshape(Y, [rows*cols, B]);
+if ndims(I) == 3
+    [rows,cols,B] = size(I);
+    Y = reshape(I, [rows*cols, B]);
+else
+    Y = I;
 end
 
 [N,B] = size(Y);

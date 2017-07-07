@@ -1,11 +1,18 @@
 function [mapping, hs, axes_h, fig_h] = endmember_scatter_plot(Y,R,names,options)
 %ENDMEMBER_SCATTER_PLOT Summary of this function goes here
 %   Detailed explanation goes here
+[M,B,p] = size(R);
+
+if nargin < 3
+    names = cell(1,M);
+    for j = 1:M
+        names{j} = ['endmember',num2str(j)];
+    end
+end
+
 if nargin < 4
     options = [];
 end
-
-[M,B,p] = size(R);
 
 options.R = R;
 options.fcn_draw_endmembers = @draw_endmembers;

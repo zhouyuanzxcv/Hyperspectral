@@ -17,8 +17,6 @@ elseif init_mode == 1 % pca
     end
     R = R(1:M,:);
 elseif init_mode == 2 % k-means
-%     R = kmeans_stable(Y,M,1);
-
     reduced_dim = 10;
     [Y1, mapping] = pca(Y, reduced_dim);
     options = [NaN,NaN,NaN,0]; % suppress output

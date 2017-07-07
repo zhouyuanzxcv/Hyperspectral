@@ -14,8 +14,7 @@ end
 
 endmember_num = size(A2,2);
 if nargin < 5 || plot_row == 0 || plot_col == 0
-    row = floor(sqrt(endmember_num));
-    col = ceil(endmember_num/row);
+    [row,col] = auto_plot_size(m,n,endmember_num);
 else
     row = plot_row;
     col = plot_col;
@@ -28,6 +27,7 @@ end
 update = 0;
 imhs = [];
 fig_h = [];
+show_abundance_histogram = 0;
 
 if nargin > 5 && isstruct(options)
     arg_set = fieldnames(options);
@@ -55,6 +55,15 @@ else
             imhs(i) = imshow(I);
             colormap(gca,'jet');
         end
+        if show_abundance_histogram
+            figure('name','Abundance histogram');
+            for i = 1:endmember_num
+                subplot(row,col,i);
+                I = reshape(A2(:,i),[m n]);
+                hist(I(:));
+                xlim([0 1]);
+            end
+        end
     else
         for i = 1:endmember_num
             I = reshape(A2(:,i),[m n]);
@@ -76,4 +85,20 @@ else
 %     end
 %     figure;
 %     imshow(I);
+end
+end
+
+function [plot_rows,plot_cols] = auto_plot_size(im_rows,im_cols,endmember_num)
+rows_candidate = (1:endmember_num);
+vals = zeros(size(rows_candidate));
+for i = 1:length(rows_candidate)
+    rows = rows_candidate(i);
+    cols = ceil(endmember_num / rows);
+    height = rows * im_rows;
+    width = cols * im_cols;
+    vals(i) = abs(height - width) / mean([height,width]);
+end
+[~,ind] = min(vals);
+plot_rows = rows_candidate(ind);
+plot_cols = ceil(endmember_num / plot_rows);
 end

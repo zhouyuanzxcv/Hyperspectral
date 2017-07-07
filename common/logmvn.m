@@ -8,8 +8,8 @@ function y = logmvn(X, Mu, Sigma, options)
 % Input: 
 %   X - N by D data. N is the number of samples. D is the number of
 %       dimensions.
-%   Mu - N by D means.
-%   Sigma - D by D by N covariance matrices.
+%   Mu - N by D (multiple) or 1 by D (single) mean.
+%   Sigma - D by D by N (multiple) or D by D (single) covariance matrice.
 %   Options - structure containing indices for transforming the Sigma to a
 %       sparse matrix. Usually no need to set.
 % Output:
@@ -40,12 +40,23 @@ function y = logmvn(X, Mu, Sigma, options)
 % Author: Yuan Zhou (zhouyuanzxcv@gmail.com)
 
 % Copyright (C) 2015
+if nargin < 4
+    options = [];
+end
 
+if size(Mu,1) == 1 && ndims(Sigma) == 2 % single
+    y = loggausspdf(X, Mu, Sigma);
+elseif size(Mu,1) == size(X,1) && size(Sigma,3) == size(X,1) % multiple means
+    y = logmvn_multiple(X, Mu, Sigma, options);
+end
 
+end
+
+function y = logmvn_multiple(X, Mu, Sigma, options)
 [N,B] = size(X);
 
 %% Transform the sigma matrix to a sparse block diagonal matrix
-if nargin > 3
+if ~isempty(options) && isfield(options,'Is') && isfield(options,'Js')
     Is = options.Is;
     Js = options.Js;
 else
@@ -73,6 +84,21 @@ x1 = sum(reshape(x1, B, N).^2, 1)';
 x2 = sum(reshape(log(diag(R)),B,N), 1)';
 
 y = -0.5 * x1 - x2 - B * log(2*pi) / 2;
-
 end
 
+function y = loggausspdf(X, mu, Sigma)
+X = X';
+mu = mu';
+d = size(X,1);
+X = bsxfun(@minus,X,mu);
+[U,p]= cholcov(Sigma);
+if p ~= 0
+    error('ERROR: Sigma is not PD.');
+end
+Q = U'\X;
+q = dot(Q,Q,1);  % quadratic term (M distance)
+c = d*log(2*pi)+2*sum(log(diag(U)));   % normalization constant
+y = -(c+q)/2;
+
+y = y';
+end

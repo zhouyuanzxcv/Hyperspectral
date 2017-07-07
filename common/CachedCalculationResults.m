@@ -29,7 +29,7 @@ classdef CachedCalculationResults
             end
             obj.FileName = file_name;
             obj.MaxSignatureSize = max_param_size;
-            obj.MaxEntries = 30;
+            obj.MaxEntries = 50;
         end
         
         function AddResult(obj, params, result)

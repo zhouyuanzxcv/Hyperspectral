@@ -12,9 +12,13 @@ if nargin < 3
     ideal_red_wl = 650;
 end
 
-blue_ind = find(wl > ideal_blue_wl, 1, 'first');
-green_ind = find(wl > ideal_green_wl, 1, 'first');
-red_ind = find(wl > ideal_red_wl, 1, 'first');
+options = struct('ideal_red_wl',ideal_red_wl,'ideal_green_wl', ...
+    ideal_green_wl,'ideal_blue_wl',ideal_blue_wl);
+rgb_ind = find_rgb_ind(wl,options);
+
+red_ind = rgb_ind(1);
+green_ind = rgb_ind(2);
+blue_ind = rgb_ind(3);
 
 blue_wl = wl(blue_ind);
 green_wl = wl(green_ind);

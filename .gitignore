@@ -53,7 +53,9 @@ Temporary Items
 /*.mat
 *.log
 *.asv
+*.zip
 !SCM/
 !common/
+!data/
 
 result*.mat

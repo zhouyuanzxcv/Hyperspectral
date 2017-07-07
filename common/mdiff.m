@@ -1,6 +1,10 @@
-function [abs_err, rel_err] = mdiff(A, B)
+function [abs_err, rel_err] = mdiff(A, B, verbose)
 %MDIFF Summary of this function goes here
 %   Detailed explanation goes here
+if nargin < 3
+    verbose = 1;
+end
+
 if iscell(A)
     e1s = zeros(1,length(A));
     e2s = e1s;
@@ -18,7 +22,9 @@ end
 abs_err = e1;
 rel_err = e1/e2;
 
-disp(['Absolute: ', num2str(abs_err), ', Relative: ', num2str(rel_err)]);
+if verbose
+    disp(['Absolute: ', num2str(abs_err), ', Relative: ', num2str(rel_err)]);
+end
 
 end
 

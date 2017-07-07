@@ -25,8 +25,8 @@ for i = 1:num_kmeans
     try
         Y1 = Y;
         options = [NaN,NaN,NaN,0]; % suppress output
-        C = fcm(Y1,M,options);
-%         [~, C] = kmeans(Y1, M, 'start', 'cluster');
+%         C = fcm(Y1,M,options);
+        [~, C] = kmeans(Y1, M, 'start', 'sample');
         Cs(:,:,i) = C;
     catch me
         err_inds = [err_inds,i];

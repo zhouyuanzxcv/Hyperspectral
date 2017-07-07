@@ -30,7 +30,7 @@ for j = 1:M
         plot(wl,-2*var_amts(j)*var_dirs(j,:) + M2_1(j,:),...
             ':','LineWidth',linewidth,'Color',[0 0.5 0]);
     end
-    h_algo = plot(wl,M2_1(j,:),'r--','LineWidth',linewidth);
+    h_algo = plot(wl,M2_1(j,:),'r-','LineWidth',linewidth);
 
     ylim([0 1]);
 

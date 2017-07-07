@@ -436,7 +436,14 @@ if isequal(filename,0)
     return;
 end
 
+R_gt = [];
+A_gt = [];
+rgb = [];
 load(fullfile(pathname,filename));
+
+[rgb, R_gt, A_gt, names, I_gt, gt_colors, tick_labels] = ...
+    add_missing_info_for_loading_image(I, wl, R_gt, A_gt, rgb);
+
 handles = load_image(rgb,I,R_gt,A_gt,names,wl,I_gt,gt_colors,tick_labels,handles);
 guidata(hObject,handles);
 
@@ -1050,9 +1057,20 @@ filepath = fullfile(pathname,filename);
 [pathstr,name,ext] = fileparts(filepath);
 % current_dir = pwd;
 % cd(pathstr);
+rgb = [];
 eval(['[I,R_gt,A_gt,names,wl,rgb] = ',name,';']);
 % cd(current_dir);
 
+[rgb, R_gt, A_gt, names, I_gt, gt_colors, tick_labels] = ...
+    add_missing_info_for_loading_image(I, wl, R_gt, A_gt, rgb);
+
+% load image
+handles = load_image(rgb,I,R_gt,A_gt,names,wl,I_gt,gt_colors,tick_labels,handles);
+guidata(hObject,handles);
+
+
+function [rgb, R_gt, A_gt, names, I_gt, gt_colors, tick_labels] = ...
+    add_missing_info_for_loading_image(I, wl, R_gt, A_gt, rgb)
 % If no ground truth, set default one
 if isempty(R_gt) && isempty(A_gt)
     % set default number of endmembers
@@ -1068,14 +1086,10 @@ if isempty(R_gt) && isempty(A_gt)
 end
 
 % set other missing information
-if ~exist('rgb','var') || isempty(rgb)
-    rgb = retrieve_rgb(I,wl);
+if isempty(rgb)
+    rgb = sqrt(retrieve_rgb(I,wl));
 end
 I_gt = A_gt2I_gt(A_gt);
 M = size(A_gt,3);
 gt_colors = distinguishable_colors(M);
 tick_labels = names;
-
-% load image
-handles = load_image(rgb,I,R_gt,A_gt,names,wl,I_gt,gt_colors,tick_labels,handles);
-guidata(hObject,handles);

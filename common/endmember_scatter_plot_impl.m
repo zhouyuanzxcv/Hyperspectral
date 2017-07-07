@@ -7,6 +7,7 @@ hs = cell(1, M + 1);
 axes_h = [];
 fig_h = [];
 
+dimension_num = 2;
 colors = distinguishable_colors(M);
 
 fcn_draw_endmembers = [];
@@ -19,14 +20,20 @@ if nargin > 3 && isstruct(options)
 end
 
 % B = size(mus{1},2);
-[mappedX, mapping] = pca(Y,2);
+options.dimension_num = dimension_num;
+[mappedX, mapping] = pca(Y,dimension_num);
 
 %% Show the pixel cloud
 if ~update
     hs = [];
     fig_h = figure;
-    hs{1} = scatter(mappedX(:,1), mappedX(:,2), 10, '.', ...
-        'MarkerEdgeColor', [0.6 0.6 0.6]); 
+    if dimension_num == 2
+        hs{1} = scatter(mappedX(:,1), mappedX(:,2), 10, '.', ...
+            'MarkerEdgeColor', [0.6 0.6 0.6]); 
+    elseif dimension_num == 3
+        hs{1} = scatter3(mappedX(:,1), mappedX(:,2), mappedX(:,3), 10, '.', ...
+            'MarkerEdgeColor', [0.6 0.6 0.6]); 
+    end
     hold on; axis equal;
     axes_h = gca;
 end
@@ -40,8 +47,13 @@ if ~isempty(Xs)
         end
 %         marker_color = min(ones(1,3), colors(i,:) + [0.5 0.5 0.5]);
         mappedX = (Xs{i} - repmat(mapping.mean, size(Xs{i},1), 1)) * mapping.M;
-        scatter(axes_h, mappedX(:,1), mappedX(:,2), 5, '+', ...
-            'MarkerEdgeColor', marker_color);
+        if dimension_num == 2
+            scatter(axes_h, mappedX(:,1), mappedX(:,2), 5, '+', ...
+                'MarkerEdgeColor', marker_color);
+        elseif dimension_num == 3
+            scatter3(axes_h, mappedX(:,1), mappedX(:,2), mappedX(:,3), 5, '+', ...
+                'MarkerEdgeColor', marker_color);
+        end
     end
 end
 

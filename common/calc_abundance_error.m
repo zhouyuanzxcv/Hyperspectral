@@ -1,6 +1,10 @@
 function [error_avg,error_A] = calc_abundance_error(A1,A2)
 %CALC_ABUNDANCE_ERROR Summary of this function goes here
 %   Detailed explanation goes here
+if ~isfloat(A1)
+    A1 = double(A1);
+end
+
 if length(unique(A1(:))) == 2
     is_real_dataset = 1;
 else

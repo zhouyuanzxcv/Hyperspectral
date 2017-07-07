@@ -16,6 +16,8 @@ A1 = double(A1);
 var_dirs = [];
 var_amts = [];
 
+permute_criterion = 'auto';
+
 if isstruct(options)
     arg_set = fieldnames(options);
     for i = 1:length(arg_set)
@@ -26,7 +28,7 @@ end
 use_uncertainty = ~isempty(var_amts);
 
 if isempty(M1) || isempty(A1) || size(A1,2) < size(A2,2)
-    show_endmembers(M2,wl);
+    show_endmembers(M2,wl,names);
     show_abundances(A2,m,n);
     if use_uncertainty
         show_uncertainty_range([], M2, var_amts, var_dirs, wl, names, options);
@@ -46,12 +48,20 @@ if length(unique(A1(:))) == 2
     is_real_dataset = 1;
 end
 
+if strcmp(permute_criterion, 'auto')
+    if is_real_dataset
+        permute_criterion = 'abundance';
+    else
+        permute_criterion = 'endmember';
+    end
+end
+
 %% Permute the endmembers and abundances from the algorithm to accord with
 % the ground truth ones.
-if is_real_dataset
+if strcmp(permute_criterion, 'abundance')
     P = permute_abundances(A1,A2);
     M2_1 = P*M2;
-else
+elseif strcmp(permute_criterion, 'endmember')
     [P,M2_1] = permute_endmembers(M1,M2);
 end
 A2_1 = (P*A2')';

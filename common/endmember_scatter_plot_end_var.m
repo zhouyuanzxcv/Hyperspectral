@@ -28,7 +28,9 @@ for j = 1:M
     for k = 1:size(proj_R{j},1)
         h1(k) = plot_gaussian_ellipsoid(proj_R{j}(k,:), ...
             proj_Cov{j}(:,:,k), 2, 50, axes_h);
-        set(h1(k),'color',colors(j,:),'linewidth',2);     
+        if options.dimension_num == 2
+            set(h1(k),'color',colors(j,:),'linewidth',2);     
+        end
     end
     hs{j+1} = h1;
 %     labelpoints(proj_R{j}(1,1), proj_R{j}(1,2), pt_labels{j});

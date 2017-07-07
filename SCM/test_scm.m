@@ -7,7 +7,7 @@ addpath('../AsterSpectralLibrary');
 addpath('../VCA');
 addpath('../');
 
-dataset = '00';
+dataset = '2';
 
 options.beta1 = 0;
 options.beta2 = 0;
@@ -52,7 +52,7 @@ switch dataset
         
         options.use_single_variance_for_uncertainty = 0;
     case '2'
-        load('../../data/PaviaUniversity_corrected.mat');
+        load('../data/PaviaUniversity_corrected.mat');
         % remove gravel and bitumen
         R_gt([3,7],:) = []; 
         names([3,7]) = [];
@@ -67,9 +67,15 @@ switch dataset
         options.beta1 = 5;
         options.beta2 = 10;
         options.rho1 = 0.05;
+    case '21'
+        load('../../data/PaviaUniversity_A.mat');
+        M = 5;
         
+        options.beta1 = 5;
+        options.beta2 = 10;
+        options.rho1 = 0.05;
    case '61'
-        load('muufl_gulfport_roi_corrected.mat');
+        load('../data/muufl_gulfport_roi_corrected.mat');
         figure, imshow(rgb);
         figure, imshow(I_gt,[1,1,1;gt_colors]);
         colorbar('YTickLabel',tick_labels,'YDir','reverse','YTick',...
