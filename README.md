@@ -8,11 +8,13 @@ Zhou, Y., Rangarajan, A. & Gader, P. D. A Gaussian mixture model representation 
 (https://arxiv.org/submit/2129365/view)
 
 -------------------------------- Summary ----------------------------------
+
 The folder "common" contains common functions that will be used by all the algorithms.
 The folder "SCM" contains functions that implement the spatial compositional model.
 The folder "GMM" contains functions that implement the Gaussian mixture model for spectral unmixing.
 
 --------------------------------- GMM -------------------------------------
+
 The "GMM" folder contains the files for the algorithm. There are two demo files. 
 
 "test_gmm.m" - demo file that runs the unsupervised GMM algorithm, which is implemented in "gmm_hu.m", which first segments the image, uses the interior pixels of the segmented regions to build distribution parameters, and finally updates the abundances. It also calls "gmm_hu_endmember.m" which estimates pixelwise endmembers.
@@ -20,6 +22,7 @@ The "GMM" folder contains the files for the algorithm. There are two demo files.
 "test_gmm_ex.m" - demo file that runs the supervised GMM algorithm (implemented in "gmm_hu_ex.m"), which takes a library of spectra as input and outputs the abundances. It also calls "gmm_hu_endmember.m" to estimate pixelwise endmembers.
 
 --------------------------------- SCM -------------------------------------
+
 The "SCM" folder contains the main files for the algorithm. The common folder contains auxiliary files used for displaying and processing. To see the demo, run "test_scm.m" and you can change the "dataset" in it.
 
 The SCM function is used as follows: 
@@ -40,6 +43,7 @@ Output:
 Note: options is a structure containing eta,beta1,beta2,rho1,show_figure,init_mode, etc.
 
 -------------------------------- Contact ----------------------------------
+
 If you have any questions, please contact:
 
 Yuan Zhou 
