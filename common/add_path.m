@@ -16,7 +16,7 @@ if ispc
     addpath('C:/Program Files/Xpdf/bin64');
 end
 
-addpath([dropbox,'Hyperspectral/code/Grendel/Graphcut']);
+addpath([dropbox,'YuanHyperspectral/code/Grendel/Graphcut']);
 
 addpath([onedrive,'Code/Matlab/Utility/distinguishable_colors']);
 addpath([onedrive,'Code/Matlab/Utility/export_fig']);
@@ -30,5 +30,5 @@ if str2double(s(1)) <= 7
     addpath([onedrive,'Code/Matlab/Utility/compatibility']);
 end
 
-addpath([dropbox,'Hyperspectral/code/common']);
-addpath([dropbox,'Hyperspectral/code/common/load_image']);
+addpath([dropbox,'YuanHyperspectral/code/common']);
+addpath([dropbox,'YuanHyperspectral/code/common/load_image']);

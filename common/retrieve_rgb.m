@@ -1,6 +1,9 @@
-function RGB = retrieve_rgb(data, wl, ideal_red_wl, ideal_green_wl, ideal_blue_wl)
+function RGB = retrieve_rgb(data, wl, ideal_red_wl, ideal_green_wl, ideal_blue_wl, verbose)
 %RETRIEVE_RGB Summary of this function goes here
 %   Detailed explanation goes here
+if nargin < 6
+    verbose = 0;
+end
 
 if mean(wl) < 10 % the unit is micrometer
     wl = wl*1e3;
@@ -24,8 +27,10 @@ blue_wl = wl(blue_ind);
 green_wl = wl(green_ind);
 red_wl = wl(red_ind);
 
-disp(['Use ',num2str(blue_wl),'nm for blue, ', ...
-    num2str(green_wl),'nm for green, ',num2str(red_wl),'nm for red.']);
+if verbose
+    disp(['Use ',num2str(blue_wl),'nm for blue, ', ...
+        num2str(green_wl),'nm for green, ',num2str(red_wl),'nm for red.']);
+end
 
 I = data;
 R = I(:,:,red_ind);

@@ -67,6 +67,15 @@ guidata(hObject, handles);
 dcm_obj = datacursormode;
 set(dcm_obj,'UpdateFcn',{@my_data_cursor_updatefcn,hObject})
 
+user_data = get(hObject,'UserData');
+if ~isempty(user_data)
+    load(user_data);
+    set(hObject,'UserData',[]);
+    handles = load_image(rgb,I,R_gt,A_gt,names,wl,I_gt,gt_colors,tick_labels,handles);
+    guidata(hObject,handles);
+end
+
+
 function txt = my_data_cursor_updatefcn(~,event_obj,hObject)
 % Customizes text of data tips
 handles = guidata(hObject);

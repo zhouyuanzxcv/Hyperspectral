@@ -55,29 +55,35 @@ end
 function y = logmvn_multiple(X, Mu, Sigma, options)
 [N,B] = size(X);
 
-%% Transform the sigma matrix to a sparse block diagonal matrix
-if ~isempty(options) && isfield(options,'Is') && isfield(options,'Js')
-    Is = options.Is;
-    Js = options.Js;
+% Transform the sigma matrix to a sparse block diagonal matrix
+if ~isempty(options) && isfield(options,'sigma_update_in_logmvn')
+    sparse_update_inplace(options.sigma_update_in_logmvn, Sigma(:));
+    Sigma1 = options.sigma_update_in_logmvn;
 else
-    Is = (1:N*B);
-    Is = repmat(reshape(Is, [B,1,N]), 1, B);
-    Is = Is(:);
+    if ~isempty(options) && isfield(options,'Is') && isfield(options,'Js')
+        Is = options.Is;
+        Js = options.Js;
+    else
+        Is = (1:N*B);
+        Is = repmat(reshape(Is, [B,1,N]), 1, B);
+        Is = Is(:);
+        
+        Js = (1:N*B);
+        Js = repmat(reshape(Js, [1,B,N]), B, 1);
+        Js = Js(:);
+    end
 
-    Js = (1:N*B);
-    Js = repmat(reshape(Js, [1,B,N]), B, 1);
-    Js = Js(:);
+    Sigma1 = sparse(Is,Js,reshape(Sigma,N*B*B,1),N*B,N*B);
 end
 
-% Construct the sparse matrix
-Sigma1 = sparse(Is,Js,reshape(Sigma,N*B*B,1),N*B,N*B);
-
-%% Compute the Cholesky decomposition
-Y1 = X - Mu;
+% Compute the Cholesky decomposition
 [R,err] = chol(Sigma1);
 if err ~= 0
     error('A Covariance matrix is not positive definite.');
 end
+
+% Final calculation
+Y1 = X - Mu;
 
 x1 = reshape(Y1', 1, N*B) / R;
 x1 = sum(reshape(x1, B, N).^2, 1)';

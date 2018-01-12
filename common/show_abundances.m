@@ -1,15 +1,17 @@
 function [imhs, fig_h] = show_abundances(A2, m, n, title, plot_row, plot_col, options)
 if nargin < 2
-    if ndims(A2) == 3
-        [m,n,M] = size(A2);
-        A2 = reshape(A2, [m*n,M]);
-    else
+    if ndims(A2) ~= 3
         return;
     end
 end
 
 if nargin < 4
     title = 'Abundances';
+end
+
+if ndims(A2) == 3
+    [m,n,M] = size(A2);
+    A2 = reshape(A2, [m*n,M]);
 end
 
 endmember_num = size(A2,2);
@@ -28,6 +30,7 @@ update = 0;
 imhs = [];
 fig_h = [];
 show_abundance_histogram = 0;
+color_map = 'jet';
 
 if nargin > 5 && isstruct(options)
     arg_set = fieldnames(options);
@@ -45,7 +48,7 @@ if 0
         imshow(I);
         xlabel(['(',char(96+i),') endmember ',num2str(i)]);
     end
-    colormap(gca,'jet');
+    colormap(gca,color_map);
 else
     if ~update
         fig_h = figure('name',title);
@@ -53,7 +56,7 @@ else
             subtightplot(row,col,i);
             I = reshape(A2(:,i),[m n]);
             imhs(i) = imshow(I);
-            colormap(gca,'jet');
+            colormap(gca,color_map);
         end
         if show_abundance_histogram
             figure('name','Abundance histogram');

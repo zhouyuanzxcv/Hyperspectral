@@ -21,7 +21,15 @@ end
 
 % B = size(mus{1},2);
 options.dimension_num = dimension_num;
-[mappedX, mapping] = pca(Y,dimension_num);
+use_specific_projection = parse_param(options, 'use_specific_projection', []);
+if isempty(use_specific_projection)
+    [mappedX, mapping] = pca(Y,dimension_num);
+else
+    mapping = options.use_specific_projection;
+    mapping.M = mapping.M(:,1:dimension_num);
+    mapping.lambda = mapping.lambda(1:dimension_num);
+    mappedX = (Y - repmat(mapping.mean, size(Y,1), 1)) * mapping.M;
+end
 
 %% Show the pixel cloud
 if ~update

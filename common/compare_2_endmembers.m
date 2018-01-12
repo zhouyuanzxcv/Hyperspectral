@@ -79,7 +79,7 @@ end
 
 %% Calculate the error
 error_A = calc_abundance_error(A1,A2_1);
-error_M = nanmean(nanmean(abs(M1-M2_1)));
+error_M = nanmean(sqrt(nanmean(abs(M1-M2_1).^2, 2)));
 
 if show_figure
     disp(['Error for A: ',num2str(error_A)]);

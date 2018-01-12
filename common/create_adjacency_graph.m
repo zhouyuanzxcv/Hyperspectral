@@ -5,8 +5,20 @@ if strcmp(method,'epsball')
     fh = @(Z) find_indices_by_epsilon(Z,param);
     [J2,A2] = create_adjacency_graph_internal(X,fh);
 elseif strcmp(method,'nn')
-    fh = @(Z) find_indices_by_nn(Z,param);
-    [J2,A2] = create_adjacency_graph_internal(X,fh);
+    if 0 % my implementation
+        fh = @(Z) find_indices_by_nn(Z,param);
+        [J2,A2] = create_adjacency_graph_internal(X,fh);
+    else % Matlab implementation is faster
+        [D,I] = pdist2(X,X,'euclidean','Smallest',param+1);
+        D(1,:) = [];
+        I(1,:) = [];
+        J2 = cell(size(D,2),1);
+        A2 = cell(size(D,2),1);
+        for i = 1:length(J2)
+            J2{i} = I(:,i)';
+            A2{i} = D(:,i)';
+        end
+    end
 else
     disp('The method parameter can only take epsball or nn');
     A = []; J2 = []; A2 = [];
@@ -32,7 +44,7 @@ for i1 = 1:step:n
     D = calc_distance_matrix(XX,X);
     [Z,I] = sort(D,2);
 
-    Z = Z(:,2:end);
+    Z = Z(:,2:end); % remove itself as closest neighbor
     I = I(:,2:end);
     for i = i1:i2
         ind = fh_find_indices(Z(i-i1+1,:));

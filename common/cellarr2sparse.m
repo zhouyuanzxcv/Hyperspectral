@@ -1,6 +1,13 @@
 function A = cellarr2sparse(J2,A2,m,n)
-%CELLARR2SPARSE Summary of this function goes here
-%   Detailed explanation goes here
+%CELLARR2SPARSE Convert cell array of Js (cols) and Vs (value) to sparse
+%matrix.
+% Input:
+%   J2 - cell array of Js (col) in which the index of J is the I (row)
+%   A2 - cell array of values
+%   m - rows of the sparse matrix
+%   n - columns of the sparse matrix
+% Output:
+%   A - sparse matrix
 total_size = 0;
 for i = 1:length(J2)
     total_size = total_size + length(J2{i});

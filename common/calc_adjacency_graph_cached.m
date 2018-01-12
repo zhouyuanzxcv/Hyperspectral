@@ -12,7 +12,12 @@ result = ccr.GetMatchedResult(cached_params);
 
 if isempty(result)
     [A,J2,A2] = create_adjacency_graph(Y,'nn',k,1);
-    result = struct('A',A,'J2',J2,'A2',A2);
+%     result = struct('A',A,'J2',J2,'A2',A2); % if J2 is a cell array, A
+%     will be duplicated multiple times
+    result = [];
+    result.A = A;
+    result.J2 = J2;
+    result.A2 = A2;
     if N*B > 1e6
         ccr.AddResult(cached_params,result);
     end

@@ -55,6 +55,7 @@ Temporary Items
 *.asv
 *.zip
 !SCM/
+!GMM/
 !common/
 !data/
 

@@ -40,7 +40,7 @@ classdef CachedCalculationResults
             end
             list_params = [list_params,{obj.GetSignature(params)}];
             list_results = [list_results,{result}];
-            save(obj.FileName,'list_params','list_results');
+            save(obj.FileName,'list_params','list_results','-v7.3');
         end
         
         function matched = GetMatchedResult(obj,params)

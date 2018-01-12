@@ -1,4 +1,4 @@
-function value = calc_log_gmm(X, w, Mu, Sigma)
+function value = calc_log_gmm(X, w, Mu, Sigma, options)
 %CALC_LOG_GMM Calculate the logarithm of the GMM.
 % Input:
 %   X: N by B data
@@ -8,6 +8,10 @@ function value = calc_log_gmm(X, w, Mu, Sigma)
 %
 % Output:
 %   value: logarithm of the GMM
+if nargin < 5
+    options = [];
+end
+
 K = length(w);
 [N,B] = size(X);
 
@@ -26,8 +30,8 @@ if is_single
     end
 else
     for k = 1:K
-        N_nk(:,k) = logmvn(X, Mu(:,:,k), Sigma(:,:,:,k));
-    end 
+        N_nk(:,k) = logmvn(X, Mu(:,:,k), Sigma(:,:,:,k), options);
+    end
 end
 
 % Need to avoid too large negative logarithm
