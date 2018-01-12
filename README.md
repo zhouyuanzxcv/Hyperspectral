@@ -9,9 +9,9 @@ Zhou, Y., Rangarajan, A. & Gader, P. D. A Gaussian mixture model representation 
 
 -------------------------------- Summary ----------------------------------
 
-The folder "common" contains common functions that will be used by all the algorithms.
-The folder "SCM" contains functions that implement the spatial compositional model.
-The folder "GMM" contains functions that implement the Gaussian mixture model for spectral unmixing.
+The folder "common" contains common functions that will be used by all the algorithms.  
+The folder "SCM" contains functions that implement the spatial compositional model.  
+The folder "GMM" contains functions that implement the Gaussian mixture model for spectral unmixing.  
 
 --------------------------------- GMM -------------------------------------
 
@@ -27,18 +27,18 @@ The "SCM" folder contains the main files for the algorithm. The common folder co
 
 The SCM function is used as follows: 
 
-function [A,R,mu,sigma,var_dirs,var_amts] = scm(I,M,options)
-Input:
-  I: row*col*B image data,
-  M: number of endmembers,
-  options: structure for additional parameters,
-Output:
-  A: abundances (N by M),
-  R: endmembers (M by B),
-  mu: noise standard deviations,
-  sigma: covariance matrices of endmember uncertainty,
-  var_dirs: uncertainty directions,
-  var_amts: uncertainty amounts.
+function [A,R,mu,sigma,var_dirs,var_amts] = scm(I,M,options)  
+Input:  
+  I: row*col*B image data,  
+  M: number of endmembers,  
+  options: structure for additional parameters,  
+Output:  
+  A: abundances (N by M),  
+  R: endmembers (M by B),  
+  mu: noise standard deviations,  
+  sigma: covariance matrices of endmember uncertainty,  
+  var_dirs: uncertainty directions,  
+  var_amts: uncertainty amounts.  
 
 Note: options is a structure containing eta,beta1,beta2,rho1,show_figure,init_mode, etc.
 
@@ -46,9 +46,9 @@ Note: options is a structure containing eta,beta1,beta2,rho1,show_figure,init_mo
 
 If you have any questions, please contact:
 
-Yuan Zhou 
-Department of Computer Information Science and Engineering
-University of Florida
+Yuan Zhou  
+Department of Computer Information Science and Engineering  
+University of Florida  
 
 zhouyuanzxcv@gmail.com
 
