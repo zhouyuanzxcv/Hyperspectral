@@ -1,11 +1,12 @@
 Hyperspectral ReadMe
 
-The repository contains the Matlab implementations of spatial compositional model(SCM), Gaussian mixture model (GMM), which are used in hyperspectral unmixing. If you find the code helpful, please cite the following papers: 
+The repository contains the Matlab implementations of spatial compositional model (SCM), Gaussian mixture model (GMM), which are used in hyperspectral unmixing. If you find the code helpful, please cite the following papers: 
 
-Zhou, Y., Rangarajan, A. & Gader, P. D. A spatial compositional model for linear unmixing and endmember uncertainty estimation. IEEE Transactions on Image Processing, vol. 25, no. 12, pp. 5987-6002, 2016 (http://ieeexplore.ieee.org/document/7592431/)
+Zhou, Y., Rangarajan, A. & Gader, P. D. A spatial compositional model for linear unmixing and endmember uncertainty estimation. IEEE Transactions on Image Processing, vol. 25, no. 12, pp. 5987-6002, 2016  
+(http://ieeexplore.ieee.org/document/7592431/)
 
-Zhou, Y., Rangarajan, A. & Gader, P. D. A Gaussian mixture model representation of endmember variability in hyperspectral unmixing. IEEE Transactions on Image Processing, To Appear, 2018 
-(https://arxiv.org/submit/2129365/view)
+Zhou, Y., Rangarajan, A. & Gader, P. D. A Gaussian mixture model representation of endmember variability in hyperspectral unmixing. IEEE Transactions on Image Processing, To Appear, 2018  
+(http://ieeexplore.ieee.org/document/8264812/)
 
 -------------------------------- Summary ----------------------------------
 
