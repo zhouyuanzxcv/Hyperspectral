@@ -5,14 +5,17 @@ The repository contains the Matlab implementations of spatial compositional mode
 Zhou, Y., Rangarajan, A. & Gader, P. D. A spatial compositional model for linear unmixing and endmember uncertainty estimation. IEEE Transactions on Image Processing, vol. 25, no. 12, pp. 5987-6002, 2016  
 (http://ieeexplore.ieee.org/document/7592431/)
 
-Zhou, Y., Rangarajan, A. & Gader, P. D. A Gaussian mixture model representation of endmember variability in hyperspectral unmixing. IEEE Transactions on Image Processing, To Appear, 2018  
+Zhou, Y., Rangarajan, A. & Gader, P. D. A Gaussian mixture model representation of endmember variability in hyperspectral unmixing. IEEE Transactions on Image Processing, vol. 27, no. 5, pp. 2242-2256, 2018  
 (http://ieeexplore.ieee.org/document/8264812/)
+
+Zhou, Y., Rangarajan, A. & Gader, P. D. Nonrigid Registration of Hyperspectral and Color Images with Vastly Different Spatial and Spectral Resolutions for Spectral Unmixing and Pansharpening, 2017 IEEE Conference on Computer Vision and Pattern Recognition Workshops (CVPRW), 2017, 1571-1579
 
 -------------------------------- Summary ----------------------------------
 
 The folder "common" contains common functions that will be used by all the algorithms.  
 The folder "SCM" contains functions that implement the spatial compositional model.  
 The folder "GMM" contains functions that implement the Gaussian mixture model for spectral unmixing.  
+The folder "REG" contains functions that implement the registration algorithm for hyperspectral and color images.  
 
 --------------------------------- GMM -------------------------------------
 
@@ -42,6 +45,14 @@ Output:
   var_amts: uncertainty amounts.  
 
 Note: options is a structure containing eta,beta1,beta2,rho1,show_figure,init_mode, etc.
+
+--------------------------------- REG -------------------------------------
+
+The "REG" folder contains the files for registration of hyperspectral and color images.  
+
+"test_reg.m" - demo file that runs the registration algorithm, which can handle images with different spatial and spectral resolutions.  
+
+"reg_hyper_rgb.m" - main file that implements the registration algorithm.  
 
 -------------------------------- Contact ----------------------------------
 

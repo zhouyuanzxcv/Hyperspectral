@@ -8,8 +8,11 @@ classdef ParameterAnalysis
     end
     
     properties
-        % 1 for 1-order, 2 for 2-order (cartesian product), a vector to
-        % indicate size for each parameter
+        % 1 for 1-order.
+        % 2 for 2-order (cartesian product).
+        % A vector to indicate size for each parameter, e.g. (5,5) means
+        % 5 neighbors (including current value) for each of the 2
+        % parameters.
         NeighborhoodMode
     end
     
@@ -18,14 +21,16 @@ classdef ParameterAnalysis
     end
     
     properties
-        % Use 'Greedy' or 'BrutalForce'
+        % Use 'Greedy' or 'BrutalForce' or 'BlockCoordinateDescent'
         Algorithm 
     end
     
+    %% parameters used by brutal force search
     properties
         BrutalForceDepth
     end
     
+    %% parameters used by BCD
     properties
         BlockCoordinateDescentDepth
     end
@@ -38,6 +43,7 @@ classdef ParameterAnalysis
         MaxNumberOfIterations
     end
     
+    %% parameters used by all
     properties
         CheckValueInListSearchOptions
     end
@@ -97,15 +103,16 @@ classdef ParameterAnalysis
                     options = nbhds(ind);
                     curr_val = min_val;
                 end
+                
+                if obj.PrintListSearch
+                    obj.printListSearch(list_search_options, list_search_value, ...
+                        list_params);
+                end
             end
             save('param_analysis.mat','list_search_options',...
                 'list_search_value','options');
 %             end
 
-            if obj.PrintListSearch
-                obj.printListSearch(list_search_options, list_search_value, ...
-                    list_params);
-            end
             disp('The best searched parameters are');
             options
         end

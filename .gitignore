@@ -58,5 +58,10 @@ Temporary Items
 !GMM/
 !common/
 !data/
+!REG/
+!REG/mi_bspline/
+!REG/optimization/
+!REG/reg_fft/
+!REG/transform/
 
 result*.mat
