@@ -94,6 +94,7 @@ end
 
 % show hyperspectral image
 imshow(uint8(retrieve_rgb(I, wl) * 255),'Parent',handles.axes_hyper);
+show_reg_warp(handles.axes_hyper, zeros(size(U2)), zeros(size(V2)));
 
 % show hyperspectral image warping field
 quiver(handles.axes_vector_field,U2,V2); 
@@ -112,6 +113,10 @@ I_hyper_reg = transform(I,eye(3),[1,1],1e-3,size(I,2),size(I,1),options);
 I_hyper_reg(:,:,~bbl) = NaN;
 I(:,:,~bbl) = NaN;
 imshow(uint8(retrieve_rgb(I_hyper_reg, wl) * 255),'Parent',handles.axes_warped_hyper);
+show_reg_warp(handles.axes_warped_hyper, U2, V2);
+
+% show_reg_warp(retrieve_rgb(I, wl));
+% show_reg_warp(retrieve_rgb(I_hyper_reg, wl), U2, V2);
 
 % transform color image
 [rows,cols,B] = size(I);
@@ -190,7 +195,7 @@ Y2 = Y1*H1;
 residual = sqrt(mean((X - Y2).^2, 2));
 residual = reshape(residual, [size(I,1) size(I,2)]);
 
-% calculate other metric e.g. correlation coefficients
+% calculate other metric e.g. correlation coefficients (corrcoef)
 X_m = mean(X,1);
 Y_m = mean(Y2,1);
 X3 = X - repmat(X_m,[size(X,1),1]);

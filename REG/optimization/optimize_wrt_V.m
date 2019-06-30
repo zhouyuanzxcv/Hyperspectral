@@ -48,6 +48,10 @@ old_V = V;
 delta_t = parse_param(options, 'optimize_V_delta_t', 1);
 % alpha controls the smoothness of v
 alpha = parse_param(options, 'optimize_V_alpha', 0.05);
+
+% rescale alpha since it is set based on 3 bands
+alpha = (alpha / 3) * size(I2,3); 
+
 beta = 0; % beta controls the magnitude of v
 iter_num = 500;
 errors = nan(1,iter_num);

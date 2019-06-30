@@ -56,7 +56,7 @@ figure, imshow(uint8(rgb1));
 figure, imshow(uint8(retrieve_rgb(I1, wl) * 255));
 
 %% optimization
-algo = 3;
+algo = 0;
 switch algo
     case 0 % proposed nonrigid
         [T2,degree2,t2,s2,sigma2,U2,V2] = reg_hyper_rgb(rgb1, I1, wl, options);
@@ -89,6 +89,8 @@ I_hyper_reg = transform(I1,eye(3),[1,1],1e-3,size(I1,2),size(I1,1),options);
 figure('name','final transformed hyperspectral image');
 imshow(uint8(retrieve_rgb(I_hyper_reg, wl) * 255));
 
+% run the following code to visualize the registration results
+% guide hyper_rgb_comparison 
 
 % calc_reg_error()
 

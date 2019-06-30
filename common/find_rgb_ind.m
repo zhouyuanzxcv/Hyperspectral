@@ -11,9 +11,9 @@ if mean(wl) < 10 % the unit is micrometer
     wl = wl*1e3;
 end
 
-blue_ind = find(wl > ideal_blue_wl, 1, 'first');
-green_ind = find(wl > ideal_green_wl, 1, 'first');
-red_ind = find(wl > ideal_red_wl, 1, 'first');
+[~,blue_ind] = min(abs(wl - ideal_blue_wl));
+[~,green_ind] = min(abs(wl - ideal_green_wl));
+[~,red_ind] = min(abs(wl - ideal_red_wl));
 
 rgb_ind = [red_ind,green_ind,blue_ind];
 
