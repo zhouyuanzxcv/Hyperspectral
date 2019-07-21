@@ -2,6 +2,7 @@ function [ output_args ] = test_gmm(dataset)
 %TEST_GMM Summary of this function goes here
 %   Detailed explanation goes here
 addpath('../NCM');
+addpath('../common');
 
 close all
 
