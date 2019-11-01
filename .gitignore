@@ -59,9 +59,11 @@ Temporary Items
 !common/
 !data/
 !REG/
-!REG/mi_bspline/
 !REG/optimization/
 !REG/reg_fft/
 !REG/transform/
+!Fusion/
+!Fusion/Quality_Indices/
+
 
 result*.mat

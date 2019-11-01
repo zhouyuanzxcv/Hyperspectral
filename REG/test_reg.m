@@ -34,7 +34,7 @@ switch dataset
         bbl = logical(bbl);
         I1 = I(:,:,bbl);
         wl = wl(bbl);
-        options.s = 10.4;
+        options.s = 10.4; % estimated scale difference
         % 20m is the IFOV of AVIRIS, 16.9m is the spatial resolution
         rho = ceil((20/16.9) * options.s / 2);
     case '30'
@@ -47,10 +47,23 @@ switch dataset
     otherwise
 end
 
-options.rho = rho;
+options.rho = rho; % radius of the PSF
+
+% Set range of selected bands of the HS images that match the spectral range of MS image. 
+% try changing it to 'full', 'multispectral', 'color', 'panchromatic'.
+% see select_relevant_bands.m for their ranges.
 options.srf_range = 'color';
+
+% lambda is the parameter for smoothing the SRF (H) in the paper.
 options.lambda = lambda;
+
+% show figures of intermediate results, e.g. initial condition
 options.show_figure = 1;
+
+% Set initialization method
+% try changing it to 'pc' (phase correlation), 'lsq' (least squares), 
+% or 'mi'(mutual information) for different images.
+options.init_method = 'pc'; % phase correlation for rgb images
 
 figure, imshow(uint8(rgb1));
 figure, imshow(uint8(retrieve_rgb(I1, wl) * 255));
@@ -90,7 +103,7 @@ figure('name','final transformed hyperspectral image');
 imshow(uint8(retrieve_rgb(I_hyper_reg, wl) * 255));
 
 % run the following code to visualize the registration results
-% guide hyper_rgb_comparison 
+hyper_rgb_comparison 
 
 % calc_reg_error()
 
