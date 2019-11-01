@@ -12,22 +12,22 @@ close all
 rho = 0;
 lambda = 1e-3;
 
-dataset = '20';
+dataset = 'salton_sea';
 switch dataset
-    case '00'
+    case 'pavia_create'
         noise_hyper = 0;
         noise_rgb = 0;
         [I1,rgb1,wl,T,s,sigma] = create_pavia_simulated();
         
         % save hyperspectral image and RGB image
         save('reg_pavia_dataset.mat','I1','wl','rgb1','T','s','sigma');
-    case '10'
+    case 'pavia'
         load('reg_pavia_dataset.mat');
         U = zeros(size(I1,1),size(I1,2));
         V = U;
         options.s = 4.5;
         options.rho = 3;
-    case '20'
+    case 'salton_sea'
         load('salton_sea_roi.mat');
 %         rgb1 = imread('salton_sea_color.png');
         rgb1 = imread('salton_sea_roi_3.2015.jpg');
@@ -37,7 +37,7 @@ switch dataset
         options.s = 10.4; % estimated scale difference
         % 20m is the IFOV of AVIRIS, 16.9m is the spatial resolution
         rho = ceil((20/16.9) * options.s / 2);
-    case '30'
+    case 'neon_sjer'
         load('neon_sjer_roi.mat');
         rgb1 = imread('2013_SJER_AOP_Camera_sample.tif');
         bbl = logical(bbl);
@@ -86,7 +86,7 @@ switch algo
         [T2,degree2,t2,s2,sigma2,U2,V2] = reg_hyper_rgb(rgb1, I1, wl, options);
     otherwise
 end
-save('reg_result.mat','T2','degree2','t2','s2','sigma2','U2','V2','rho');
+save(['reg_result_',dataset,'.mat'],'T2','degree2','t2','s2','sigma2','U2','V2','rho');
 
 % resulting color image (scaled)
 I2 = transform(double(rgb1), T2, s2, sigma2, size(I1,2), size(I1,1), options);
@@ -103,7 +103,7 @@ figure('name','final transformed hyperspectral image');
 imshow(uint8(retrieve_rgb(I_hyper_reg, wl) * 255));
 
 % run the following code to visualize the registration results
-hyper_rgb_comparison 
+hyper_rgb_comparison('UserData',dataset);
 
 % calc_reg_error()
 

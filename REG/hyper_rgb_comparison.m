@@ -61,9 +61,11 @@ handles.output = hObject;
 
 %% load images
 rho = 0;
-dataset = '20';
+% dataset = 'salton_sea';
+dataset = get(hObject,'UserData');
+
 switch dataset
-    case '10'
+    case 'pavia'
         U2 = zeros(80,50);
         V2 = zeros(80,50);
         bbl = true(103,1);
@@ -71,7 +73,7 @@ switch dataset
         load('reg_pavia_dataset.mat');
         load('reg_result_pavia.mat');
         I = I1;
-    case '20'
+    case 'salton_sea'
 %         rho = ceil((20/16.9) * mean(s2) / 2);
 
         load('salton_sea_roi.mat');
@@ -84,7 +86,7 @@ switch dataset
 %         load('reg_result_salton_sea_MI_bspline.mat');
         
         bbl = logical(bbl);
-    case '30'
+    case 'neon_sjer'
         load('neon_sjer_roi.mat');
         rgb1 = imread('2013_SJER_AOP_Camera_sample.tif');
         load('reg_result_neon_sjer.mat');
