@@ -24,7 +24,7 @@ Zhou, Y., Rangarajan, A. & Gader, P. D. A Gaussian mixture model representation 
 The folders "REG" and "Fusion" contains functions that implement the registration algorithm and the fusion algorithm for hyperspectral and multispectral images.  
 
 Zhou, Y., Rangarajan, A. & Gader, P. D. An integrated approach to registration and fusion of hyperspectral and multispectral images, IEEE Transactions on Geoscience and Remote Sensing, To Appear, 2019  
-(Link to be added later)  
+(https://ieeexplore.ieee.org/document/8897135)  
 
 
 --------------------------------- SCM -------------------------------------
