@@ -6,6 +6,7 @@ addpath('reg_fft');
 addpath('transform');
 addpath('optimization');
 addpath('mi_bspline');
+addpath('../common');
 
 close all
 
