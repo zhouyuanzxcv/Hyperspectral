@@ -63,7 +63,7 @@ options.show_figure = 1;
 % Set initialization method
 % try changing it to 'pc' (phase correlation), 'lsq' (least squares), 
 % or 'mi'(mutual information) for different images.
-options.init_method = 'pc'; % phase correlation for rgb images
+options.init_method = 'mi'; 
 
 figure, imshow(uint8(rgb1));
 figure, imshow(uint8(retrieve_rgb(I1, wl) * 255));
