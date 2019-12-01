@@ -42,6 +42,7 @@ options.isRigid = 1;
 
 %% calculate SRF
 % No bad bands available in the visible range
+% Selected bands ('color') may be changed for MS images
 [I_sel,bands_sel] = select_relevant_bands(I1,wl1,'color');
 wl_sel = wl1(bands_sel)';
 S = zeros(B,length(wl_sel));
