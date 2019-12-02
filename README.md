@@ -84,7 +84,7 @@ The "GMM" folder contains the files for the unmxing algorithm with endmember var
 
 The registration algorithm applies a nonrigid transformation to the hyperspectral image and a rigid transformation to the multispectral image. The fusion algorithm uses the linear coefficients learned from the manifold of the multispectral pixels to constrain the reconstructed hyperspectral pixels.
 
-![registration-fusion-flowchart](./figure/reg_fusion_flowchart.jpg)
+![registration-fusion-flowchart](./figures/reg_fusion_flowchart.jpg)
 
 The following code is used to perform registration on the sample images of the Salton Sea site. The results will be shown in a GUI for checking registration accuracy.  
 ```
