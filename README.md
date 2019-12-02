@@ -11,8 +11,16 @@ This repository contains the Matlab implementations of several algorithms on thi
 	1. Spatial compositional model (SCM) for unmixing with a fixed endmember set (TIP16)  
 	2. Gaussian mixture model (GMM) for unmixing with endmember variability (TIP18)  
 	3. A registration and fusion algorithm for combining a hyperspectral image and a multispectral image (TGRS19)  
-If you find some of the code helpful, please cite the corresponding papers:  
+If you find some of the code helpful, please cite the corresponding papers.  
 
+Zhou, Y., Rangarajan, A. & Gader, P. D. A spatial compositional model for linear unmixing and endmember uncertainty estimation. IEEE Transactions on Image Processing, vol. 25, no. 12, pp. 5987-6002, 2016  
+(http://ieeexplore.ieee.org/document/7592431/)  
+
+Zhou, Y., Rangarajan, A. & Gader, P. D. A Gaussian mixture model representation of endmember variability in hyperspectral unmixing. IEEE Transactions on Image Processing, vol. 27, no. 5, pp. 2242-2256, 2018  
+(http://ieeexplore.ieee.org/document/8264812/)  
+
+Zhou, Y., Rangarajan, A. & Gader, P. D. An integrated approach to registration and fusion of hyperspectral and multispectral images, IEEE Transactions on Geoscience and Remote Sensing, To Appear, 2019  
+(https://ieeexplore.ieee.org/document/8897135)  
 
 ### Organization
 
@@ -20,19 +28,9 @@ The folder "common" contains common functions that will be used by all the algor
 
 The folder "SCM" contains functions that implement the spatial compositional model.  
 
-Zhou, Y., Rangarajan, A. & Gader, P. D. A spatial compositional model for linear unmixing and endmember uncertainty estimation. IEEE Transactions on Image Processing, vol. 25, no. 12, pp. 5987-6002, 2016  
-(http://ieeexplore.ieee.org/document/7592431/)  
-
 The folder "GMM" contains functions that implement the Gaussian mixture model for spectral unmixing.  
 
-Zhou, Y., Rangarajan, A. & Gader, P. D. A Gaussian mixture model representation of endmember variability in hyperspectral unmixing. IEEE Transactions on Image Processing, vol. 27, no. 5, pp. 2242-2256, 2018  
-(http://ieeexplore.ieee.org/document/8264812/)  
-
 The folders "REG" and "Fusion" contains functions that implement the registration algorithm and the fusion algorithm for hyperspectral and multispectral images.  
-
-Zhou, Y., Rangarajan, A. & Gader, P. D. An integrated approach to registration and fusion of hyperspectral and multispectral images, IEEE Transactions on Geoscience and Remote Sensing, To Appear, 2019  
-(https://ieeexplore.ieee.org/document/8897135)  
-
 
 ## Spatial Compositional Model
 
