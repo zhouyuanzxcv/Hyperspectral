@@ -22,7 +22,7 @@ Zhou, Y., Rangarajan, A. & Gader, P. D. A Gaussian mixture model representation 
 Zhou, Y., Rangarajan, A. & Gader, P. D. An integrated approach to registration and fusion of hyperspectral and multispectral images, IEEE Transactions on Geoscience and Remote Sensing, To Appear, 2019  
 (https://ieeexplore.ieee.org/document/8897135)  
 
-### Organization
+###### Organization
 
 The folder "common" contains common functions that will be used by all the algorithms.  
 
@@ -35,7 +35,7 @@ The folders "REG" and "Fusion" contains functions that implement the registratio
 ## Spatial Compositional Model
 
 In SCM, we add a layer of a fixed set of endmembers that generate all the pixel spectra. Integrating out this layer requires first combining all the pixel spectra likelihood. In this way, the estimated covariance matrices reflect a kind of uncertainty about the endmember centers.  
-<img align="right" width="250" src="./figures/scm_pgm.jpg">
+<img align="right" width="260" src="./figures/scm_pgm.jpg">
 
 To see the demo, run
 ```
@@ -61,7 +61,7 @@ Output:
 
 Note: options is a structure containing eta,beta1,beta2,rho1,show_figure,init_mode, etc.  
 
-### Organization
+###### Organization
 
 The "SCM" folder contains the main files for the unmixing algorithm with uncertainty estimation. The "common" folder contains auxiliary files used for displaying and processing. 
 
@@ -69,7 +69,7 @@ The "SCM" folder contains the main files for the unmixing algorithm with uncerta
 ## Gaussian Mixture Model
 
 In GMM, we are given a spectral library of pure spectra for all the endmember classes. This spectral library confines the range of endmember spectra that are allowed in a pixel. We first estimate the GMM parameters given this library, then estimate the abundances in each pixel.  
-<img align="right" width="250" src="./figures/gmm_pgm.jpg">
+<img align="right" width="230" src="./figures/gmm_pgm.jpg">
 
 There are two versions. The first version (unsupervised) first segments the image, uses the interior pixels of the segmented regions to build distribution parameters, and finally updates the abundances. To run the demo code of this version, run  
 ```
@@ -81,7 +81,7 @@ The second version (supervised) takes a library of spectra as input and outputs 
 test_gmm_ex;  
 ```
 
-### Organization
+###### Organization
 
 The "GMM" folder contains the files for the unmxing algorithm with endmember variability modeled by GMM. There are two demo files.  
 
@@ -106,7 +106,7 @@ cd ../Fusion
 run_fusion_algo;
 ```
 
-### Organization
+###### Organization
 
 The "REG" folder contains the files for registration of hyperspectral and multispectral images.  
 
