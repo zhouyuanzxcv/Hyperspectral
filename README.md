@@ -35,7 +35,7 @@ The folders "REG" and "Fusion" contains functions that implement the registratio
 ## Spatial Compositional Model
 
 In SCM, we add a layer of a fixed set of endmembers that generate all the pixel spectra. Integrating out this layer requires first combining all the pixel spectra likelihood. In this way, the estimated covariance matrices reflect a kind of uncertainty about the endmember centers.  
-<img align="right" width="270" src="./figures/scm_pgm.jpg">
+<img align="right" width="260" src="./figures/scm_pgm.jpg">
 
 To see the demo, run
 ```
