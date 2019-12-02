@@ -35,7 +35,7 @@ The folders "REG" and "Fusion" contains functions that implement the registratio
 ## Spatial Compositional Model
 
 In SCM, we add a layer of a fixed set of endmembers that generate all the pixel spectra. Integrating out this layer requires first combining all the pixel spectra likelihood. In this way, the estimated covariance matrices reflect a kind of uncertainty about the endmember centers.  
-<img align="right" width="300" src="./figures/scm_pgm.jpg">
+<img align="right" width="250" src="./figures/scm_pgm.jpg">
 
 To see the demo, run
 ```
@@ -69,6 +69,7 @@ The "SCM" folder contains the main files for the unmixing algorithm with uncerta
 ## Gaussian Mixture Model
 
 In GMM, we are given a spectral library of pure spectra for all the endmember classes. This spectral library confines the range of endmember spectra that are allowed in a pixel. We first estimate the GMM parameters given this library, then estimate the abundances in each pixel.  
+<img align="right" width="250" src="./figures/gmm_pgm.jpg">
 
 There are two versions. The first version (unsupervised) first segments the image, uses the interior pixels of the segmented regions to build distribution parameters, and finally updates the abundances. To run the demo code of this version, run  
 ```
