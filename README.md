@@ -1,4 +1,5 @@
 # Statistical Spectral Unmixing Toolkit
+Yuan Zhou
 
 ## Introduction
 
