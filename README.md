@@ -22,7 +22,7 @@ Zhou, Y., Rangarajan, A. & Gader, P. D. A Gaussian mixture model representation 
 Zhou, Y., Rangarajan, A. & Gader, P. D. An integrated approach to registration and fusion of hyperspectral and multispectral images, IEEE Transactions on Geoscience and Remote Sensing, To Appear, 2019  
 (https://ieeexplore.ieee.org/document/8897135)  
 
-###### Organization
+#### Organization
 
 The folder "common" contains common functions that will be used by all the algorithms.  
 
@@ -61,7 +61,7 @@ Output:
 
 Note: options is a structure containing eta,beta1,beta2,rho1,show_figure,init_mode, etc.  
 
-###### Organization
+#### Organization
 
 The "SCM" folder contains the main files for the unmixing algorithm with uncertainty estimation. The "common" folder contains auxiliary files used for displaying and processing. 
 
@@ -81,7 +81,7 @@ The second version (supervised) takes a library of spectra as input and outputs 
 test_gmm_ex;  
 ```
 
-###### Organization
+#### Organization
 
 The "GMM" folder contains the files for the unmxing algorithm with endmember variability modeled by GMM. There are two demo files.  
 
@@ -106,7 +106,7 @@ cd ../Fusion
 run_fusion_algo;
 ```
 
-###### Organization
+#### Organization
 
 The "REG" folder contains the files for registration of hyperspectral and multispectral images.  
 
