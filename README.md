@@ -1,9 +1,9 @@
-# Statistical Spectral Unmixing toolkit
+# Statistical Spectral Unmixing Toolkit
 by Yuan Zhou
 
 ## Introduction
 
-Hyperspectral images, a kind of images with hundreds of bands covering a wide spectral range, typically have a low spatial resolution. Given a pixel covering a region with a diameter of several meters, an interesting question is what the composing materials are and what their fractions are in the region. Finding the spectral signatures of these underlying materials (*endmember*) and their fractions (*abundance*) in each pixel is call *spectral unmixing*. In practice, spectral unmixing is used to study the composition of surfaces on Earth.    
+Hyperspectral images, a kind of images with hundreds of bands covering a wide spectral range, typically have a low spatial resolution. Given a pixel covering a region with a diameter of several meters, an interesting question is what the composing materials are and what their fractions are in the region. Finding the spectral signatures of these underlying materials (*endmember*) and their fractions (*abundance*) in each pixel is called *spectral unmixing*. In practice, spectral unmixing is used to study the composition of surfaces on Earth.    
 
 Given an image to unmix, spectral unmixing can be acomplished by three ways: (1) Assume that there is a fixed set of endmembers and all the pixels are linear combinations of them; (2) Assume that there is a spectral library of pure spectra representing *endmember variability* for a set of *endmember classes*, and that the pixels to unmix are linear combinations of some spectra in the library; (3) Assume that there is an additional color or multispectral image that covers the same area, and the underlying compostion can be retrieved by registering the fusing these two types of images.
 
