@@ -5,7 +5,7 @@ Yuan Zhou
 
 Hyperspectral images, a kind of images with hundreds of bands covering a wide spectral range, typically have a low spatial resolution. Given a pixel covering a region with a diameter of several meters, an interesting question is what the composing materials are and what their fractions are in the region. Finding the spectral signatures of these underlying materials (*endmember*) and their fractions (*abundance*) in each pixel is called *spectral unmixing*. In practice, spectral unmixing is used to study the composition of surfaces on Earth.    
 
-Given an image to unmix, spectral unmixing can be acomplished by three ways: (1) Assume that there is a fixed set of endmembers and all the pixels are linear combinations of them; (2) Assume that there is a spectral library of pure spectra representing *endmember variability* for a set of *endmember classes*, and that the pixels to unmix are linear combinations of some spectra in the library; (3) Assume that there is an additional color or multispectral image that covers the same area, and the underlying compostion can be retrieved by registering the fusing these two types of images.
+Given an image to unmix, spectral unmixing can be acomplished in three ways: (1) Assume that there is a fixed set of endmembers and all the pixels are linear combinations of them; (2) Assume that there is a spectral library of pure spectra representing *endmember variability* for a set of *endmember classes*, and that the pixels to unmix are linear combinations of some spectra in the library; (3) Assume that there is an additional color or multispectral image that covers the same area, and the underlying compostion can be retrieved by registering the fusing these two types of images.
 
 This repository contains the Matlab implementations of several algorithms on this topic, including:  
 	1. Spatial compositional model (SCM) for unmixing with a fixed endmember set (TIP16)  
@@ -35,9 +35,9 @@ The folders "REG" and "Fusion" contains functions that implement the registratio
 ## Spatial Compositional Model
 
 In SCM, we add a layer of a fixed set of endmembers that generate all the pixel spectra. Integrating out this layer requires first combining all the pixel spectra likelihood. In this way, the estimated covariance matrices reflect a kind of uncertainty about the endmember centers.  
+<img align="right" width="300" src="./figures/scm_pgm.jpg">
 
 To see the demo, run
-
 ```
 test_scm;
 ```
@@ -70,13 +70,23 @@ The "SCM" folder contains the main files for the unmixing algorithm with uncerta
 
 In GMM, we are given a spectral library of pure spectra for all the endmember classes. This spectral library confines the range of endmember spectra that are allowed in a pixel. We first estimate the GMM parameters given this library, then estimate the abundances in each pixel.  
 
+There are two versions. The first version (unsupervised) first segments the image, uses the interior pixels of the segmented regions to build distribution parameters, and finally updates the abundances. To run the demo code of this version, run  
+```
+test_gmm;
+```
+
+The second version (supervised) takes a library of spectra as input and outputs the abundances. To run this version, run  
+```
+test_gmm_ex;  
+```
+
 ### Organization
 
 The "GMM" folder contains the files for the unmxing algorithm with endmember variability modeled by GMM. There are two demo files.  
 
-"test_gmm.m" - demo file that runs the unsupervised GMM algorithm, which is implemented in "gmm_hu.m". The algorithm first segments the image, uses the interior pixels of the segmented regions to build distribution parameters, and finally updates the abundances. It also calls "gmm_hu_endmember.m" which estimates pixelwise endmembers.  
+"test_gmm.m" - demo file that runs the unsupervised GMM algorithm, which is implemented in "gmm_hu.m". It also calls "gmm_hu_endmember.m" which estimates pixelwise endmembers.  
 
-"test_gmm_ex.m" - demo file that runs the supervised GMM algorithm (implemented in "gmm_hu_ex.m"). It takes a library of spectra as input and outputs the abundances. It also calls "gmm_hu_endmember.m" to estimate pixelwise endmembers.  
+"test_gmm_ex.m" - demo file that runs the supervised GMM algorithm (implemented in "gmm_hu_ex.m"). It also calls "gmm_hu_endmember.m" to estimate pixelwise endmembers.  
 
 ## Registration and Fusion
 
