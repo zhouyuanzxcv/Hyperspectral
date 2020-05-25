@@ -16,16 +16,16 @@ This repository contains the Matlab implementations of several algorithms on thi
 
 If you find some of the code helpful, please cite the corresponding papers.  
 
-Zhou, Y., Rangarajan, A. & Gader, P. D., A spatial compositional model for linear unmixing and endmember uncertainty estimation. IEEE Transactions on Image Processing, vol. 25, no. 12, pp. 5987-6002, 2016  
+Zhou, Y., Rangarajan, A. & Gader, P. D., "A spatial compositional model for linear unmixing and endmember uncertainty estimation". *IEEE Transactions on Image Processing*, vol. 25, no. 12, pp. 5987-6002, 2016  
 (http://ieeexplore.ieee.org/document/7592431/)  
 
-Zhou, Y., Rangarajan, A. & Gader, P. D., A Gaussian mixture model representation of endmember variability in hyperspectral unmixing. IEEE Transactions on Image Processing, vol. 27, no. 5, pp. 2242-2256, 2018  
+Zhou, Y., Rangarajan, A. & Gader, P. D., "A Gaussian mixture model representation of endmember variability in hyperspectral unmixing". *IEEE Transactions on Image Processing*, vol. 27, no. 5, pp. 2242-2256, 2018  
 (http://ieeexplore.ieee.org/document/8264812/)  
 
-Zhou, Y., Rangarajan, A. & Gader, P. D., An integrated approach to registration and fusion of hyperspectral and multispectral images, IEEE Transactions on Geoscience and Remote Sensing, vol. 58, no. 5, pp. 3020-3033, 2020  
+Zhou, Y., Rangarajan, A. & Gader, P. D., "An integrated approach to registration and fusion of hyperspectral and multispectral images", *IEEE Transactions on Geoscience and Remote Sensing*, vol. 58, no. 5, pp. 3020-3033, 2020  
 (https://ieeexplore.ieee.org/document/8897135)  
 
-Zhou, Y., Wetherley, E. B. & Gader, P. D., Unmixing urban hyperspectral imagery using probability distributions to represent endmember variability, Remote Sensing of Environment, vol. 246, 2020  
+Zhou, Y., Wetherley, E. B. & Gader, P. D., "Unmixing urban hyperspectral imagery using probability distributions to represent endmember variability", *Remote Sensing of Environment*, vol. 246, 2020  
 (https://doi.org/10.1016/j.rse.2020.111857)  
 
 #### Organization
@@ -131,7 +131,9 @@ The "Fusion" folder contains the files for fusion of hyperspectral and multispec
 
 ## Application of GMM to Santa Barbara data
 
-It is difficult to evaluate unmixing algorithms since the endmembers can be interpreted in many ways. One approach is to fix the endmembers and evaluate the abundances by comparing them to some reference values retrieved from coregistered high-resolution images. The Santa Barbara dataset has 64 validation polygons with 2 spatial resolutions (16 m, 4 m), where the true abundances are estimated by referring to 1 m images. It also provides a spectral library that collects a large number of spectra for 6 endmember classes, turfgrass, NPV, paved, roof, soil, tree. By applying multiple unmixing algorithms on this dataset, accuracy can be evaluated and compared.  
+It is difficult to evaluate unmixing algorithms since the endmembers can be interpreted in many ways. Methods such as referring to USGS spectra, segmented pure spectra regions, and reconstruction errors have their own problems. A better way is to fix the endmembers and evaluate the abundances by comparing them to some reference values retrieved from coregistered high-resolution images.  
+
+The Santa Barbara dataset has 64 validation polygons with 2 spatial resolutions (16 m, 4 m), where the true abundances are estimated by referring to 1 m images. It also provides a spectral library that collects a large number of spectra for 6 endmember classes, turfgrass, NPV, paved, roof, soil, tree. By applying multiple unmixing algorithms on this dataset, accuracy can be evaluated and compared.  
 
 ![santabarbara-flowchart](./figures/santabarbara_app.jpg)
 
