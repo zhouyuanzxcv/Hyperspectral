@@ -1,6 +1,8 @@
 function P = permute_abundances(A1,A2)
 %PERMUTE_ABUNDANCES Permute abundance maps in A2 such that they match the
-%abundance maps in A1.
+%abundance maps in A1. Warning: it assumes that most elements in the
+%abundance maps are 1s. To permute arbitrary values, use
+%permute_endmembers.
 % Input:
 %   A1: N by M_1 matrix of the abundance maps to be matched.
 %   A2: N by M_2 matrix of the abundance maps to be permuted.

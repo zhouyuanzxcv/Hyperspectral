@@ -1,7 +1,7 @@
 function add_path(dropbox)
 if nargin < 1
     if ispc
-        dropbox = 'C:/Dropbox/';
+        dropbox = 'D:/Dropbox/';
     elseif ismac
         dropbox = '/Users/yuanzhou/Dropbox/';
     elseif isunix
@@ -20,6 +20,7 @@ addpath([dropbox,'Code/Matlab/Utility/export_fig']);
 addpath([dropbox,'Code/Matlab/Utility/gridLegend']);
 addpath([dropbox,'Code/Matlab/Utility/subtightplot']);
 addpath([dropbox,'Code/Matlab/Utility/textprogressbar']);
+addpath([dropbox,'Code/Matlab/Utility/violinplot']);
 addpath([dropbox,'Code/Matlab/Utility']);
 
 s = version;

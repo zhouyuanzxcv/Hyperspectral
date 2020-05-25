@@ -69,6 +69,7 @@ switch algo
 %         options.beta = 1; % regularization parameter
 %         options.K_neighbor = 3; % number of neighbors (K)
 %         options.r2 = 15; % rho_2
+%         options.r1 = 1; % rho_1
         
         I_recon = im_fusion(I_hyper,wl,I_rgb,options);
     case 'GFPCA'

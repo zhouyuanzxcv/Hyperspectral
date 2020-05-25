@@ -58,12 +58,17 @@ Temporary Items
 !GMM/
 !common/
 !data/
+!data/SantaBarbara/
 !REG/
 !REG/optimization/
 !REG/reg_fft/
 !REG/transform/
 !Fusion/
 !Fusion/Quality_Indices/
+!GMM_SantaBarbara/
+!GMM_SantaBarbara/competing_methods/AAM/
+!GMM_SantaBarbara/competing_methods/BCM/
+!GMM_SantaBarbara/competing_methods/unmixP_NCM/
 !figures/
 
 

@@ -5,12 +5,13 @@ k = parse_param(options,'K_neighbor',3);
 % window = parse_param(options,'window_size',30);
 % tau = parse_param(options,'tau',10);
 r2 = parse_param(options,'r2',15);
+r1 = parse_param(options,'r1',1);
 
 % dummy_beta = 0.01; % not used since 0 is input as beta2
 % [L,~] = calc_Laplacians(I1, eta, dummy_beta, 0);
 if strcmp(options.regularization, 'LLMM')
 %     L = L + tau*calc_manifold_LLE_constraint(I1,k,step,window);
-    L = calc_manifold_LLE_constraint_radius(I1,k,1) + ...        
+    L = calc_manifold_LLE_constraint_radius(I1,k,r1) + ...        
         calc_manifold_LLE_constraint_radius(I1,k,r2);
 end
 
