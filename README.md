@@ -133,7 +133,7 @@ The "Fusion" folder contains the files for fusion of hyperspectral and multispec
 
 It is difficult to evaluate unmixing algorithms since the endmembers can be interpreted in many ways. Methods such as referring to USGS spectra, segmented pure spectra regions, and reconstruction errors have their own problems. A better way is to fix the endmembers and evaluate the abundances by comparing them to some reference values retrieved from coregistered high-resolution images.  
 
-The Santa Barbara dataset has 64 validation polygons with 2 spatial resolutions (16 m, 4 m), where the true abundances are estimated by referring to 1 m images. It also provides a spectral library that collects a large number of spectra for 6 endmember classes, turfgrass, NPV, paved, roof, soil, tree. By applying multiple unmixing algorithms on this dataset, accuracy can be evaluated and compared.  
+The Santa Barbara dataset has 64 validation polygons with 2 spatial resolutions (16 m, 4 m), where the true abundances are estimated by referring to 1 m images. It also provides a spectral library that collects a large number of spectra for 6 endmember classes, *turfgrass*, *NPV*, *paved*, *roof*, *soil*, *tree*. By applying multiple unmixing algorithms on this dataset, accuracy can be evaluated and compared.  
 
 ![santabarbara-flowchart](./figures/santabarbara_app.jpg)
 
